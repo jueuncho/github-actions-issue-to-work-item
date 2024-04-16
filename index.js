@@ -676,7 +676,7 @@ function getValuesFromPayload(payload, env) {
   if (payload.label != undefined) {
     vm.label = payload.label.name != undefined ? payload.label.name : "";
     if (payload.label.name == 'bug') {
-	    vm.env.wit == 'Issue'
+	    vm.env.wit == 'Issue';
     }
   }
 
