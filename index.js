@@ -672,6 +672,7 @@ function getValuesFromPayload(payload, env) {
 	};
 
   // label is not always part of the payload
+	console.log(payload.label);
   if (payload.label != undefined) {
     vm.label = payload.label.name != undefined ? payload.label.name : "";
     if (payload.label.name == 'bug') {
