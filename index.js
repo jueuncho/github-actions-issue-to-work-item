@@ -673,11 +673,16 @@ function getValuesFromPayload(payload, env) {
 
   // label is not always part of the payload
 	console.log(payload.issue.labels);
+  if (payload.issue.labels != undefined && payload.issue.labels.length > 0) {
+    $.each(payload.issue.labels, function (idx, target) {
+	    if (target.name == "bug") {
+		    vm.env.wit = "Issue";
+		    break;
+	    }
+    });
+  }
   if (payload.label != undefined) {
     vm.label = payload.label.name != undefined ? payload.label.name : "";
-    if (payload.label.name == 'bug') {
-	    vm.env.wit == 'Issue';
-    }
   }
 
   // comments are not always part of the payload
