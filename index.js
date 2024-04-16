@@ -674,13 +674,14 @@ function getValuesFromPayload(payload, env) {
   // label is not always part of the payload
 	console.log(payload.issue.labels);
   if (payload.issue.labels != undefined && payload.issue.labels.length > 0) {
-    $.each(payload.issue.labels, function (idx, target) {
-	    if (target.name == "bug") {
+	  payload.issue.labels.forEach((label) => {
+		  if (label.name == "bug") {
 		    vm.env.wit = "Issue";
 		    return false;
-	    }
-    });
+		  }
+	  });
   }
+	
   if (payload.label != undefined) {
     vm.label = payload.label.name != undefined ? payload.label.name : "";
   }
