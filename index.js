@@ -677,7 +677,7 @@ function getValuesFromPayload(payload, env) {
     $.each(payload.issue.labels, function (idx, target) {
 	    if (target.name == "bug") {
 		    vm.env.wit = "Issue";
-		    break;
+		    return false;
 	    }
     });
   }
