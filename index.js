@@ -674,6 +674,9 @@ function getValuesFromPayload(payload, env) {
   // label is not always part of the payload
   if (payload.label != undefined) {
     vm.label = payload.label.name != undefined ? payload.label.name : "";
+    if (payload.label.name == 'bug') {
+	    vm.env.wit == 'Issue'
+    }
   }
 
   // comments are not always part of the payload
